@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<h2>Categories</h2>
+
+	<div class="table">
+		<div class="table-head">
+			<li class="tabledata index">#</li>
+		    <li class="tabledata name">Name</li>
+		    <li class="tabledata number">Number of Products</li>
+		</div>
+
+
+		<div>
+			{% if not object_list %}
+				<a class="noproducts"> No Products!!</a>
+			{% endif %}
+		</div>
+		{% for object in object_list %}
+		<div >
+			<a href="{{object.get_absolute_url}}">
+				<div class="table-data" >
+				    <li class="tabledata index">{{ forloop.counter }}</li>
+				    <li class="tabledata name">{{ object.name }}</li>
+				    <li class="tabledata number">{{ object.category.count }}</li>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="bottom-btns">
+		<a class="btn btn-primary" href="{% url 'shop_category_create' %}">New Category</a>
+	</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html>
+	<head>
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+
+	    <div class="container enter">
+	    	<div class="section">
+
+				<script>
+					 $(document).ready(function() {
+					   $('select').attr("class", "browser-default")
+					});
+				</script>
+				<h2>Signup</h2>
+				<form method="post">
+					{% csrf_token %}
+					{{form|crispy}}
+					
+
+					<p><button class="btn btn-primary" type="submit">Submit</button><p>
+
+				</form>
+
+				<a> Already have an account. <a class="" href="/accounts/login/">Login</a> </a>
+
+
+	    	</div>
+    	</div>
+	</body>
+</html>

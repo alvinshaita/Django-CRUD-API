@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+	<h2>Categories</h2>
+	<h3>Products in {{ object.name }}</h3>
+
+    <div class="table">
+		<div class="table-head">
+			<li class="tabledata name">Name</li>
+		    <li class="tabledata description">Description</li>
+		    <li class="tabledata price">Price ($)</li>
+		</div>
+
+		<div>
+			{% if object.category.count == 0 %}
+				<a class="noproducts"> No Products!!</a>
+			{% endif %}
+		</div>
+
+		{% for product_item in products_in_category %}
+		<div >
+			<a>
+				<div class="table-data-list" >
+				    <li class="tabledata name">{{product_item.name}}</li>
+				    <li class="tabledata description">{{ product_item.description }}</li>
+				    <li class="tabledata price">${{ product_item.price }}</li>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="bottom-btns">
+    	<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+    	<a class="btn btn-primary" href="{{object.get_delete_url}}">Delete</a>
+		
+		<a id="p-down" class="btn btn-default" href="{% url 'shop_category_list' %}">Back</a>
+	</div>
+
+
+{% endblock %}

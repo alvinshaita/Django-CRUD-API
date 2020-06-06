@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<h2>Categories</h2>
+	<form method="post">{% csrf_token %}
+	    <p class="warning">Deleting a category would delete all its products</p>
+	    <p class="warning">Are you sure you want to delete "{{ object }}"?</p>
+
+	    <div class="btns-order">
+	    	<input class="btn btn-primary" type="submit" value="Confirm">
+	    		<a class="btn btn-primary" href="{{ object.get_absolute_url }}">Cancel</a>
+	    </div>
+	</form>
+{% endblock %}

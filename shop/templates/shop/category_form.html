@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<h2>Categories</h2>
+	<script>
+		 $(document).ready(function() {
+		   $('select').attr("class", "browser-default")
+		});
+	</script>
+	<form method="post">
+		{% csrf_token %}
+		{{form|crispy}}
+
+		<div class="btns-order">
+			<button class="btn btn-primary" type="submit">Submit</button>
+			<a class="btn btn-default" onclick="history.back()">Cancel</a>
+			
+		</div>
+
+	</form>
+{% endblock %}

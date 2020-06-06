@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Products</h2>
+	
+	<div>
+	<table class="tablefr">
+		<tr>
+			<td class="tabletitle">Name</td>
+			<td>{{ object.name }}</td>
+		</tr>
+		<tr>
+			<td class="tabletitle">Description</td>
+			<td>{{ object.description }}</td>
+		</tr>
+		<tr>
+			<td class="tabletitle">Price ($)</td>
+			<td>${{ object.price }}</td>
+		</tr>
+		<tr>
+			<td class="tabletitle">Category</td>
+			<td>{{ object.category }}</td>
+		</tr>
+	</table>
+	</div>
+	
+	<div id="p-down" class="bottom-btns">
+		<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+		<a class="btn btn-primary" href="{{object.get_delete_url}}">Delete</a>
+		<a class="btn btn-default" href="{% url 'shop_product_list' %}">Back</a>
+	</div>
+{% endblock %}

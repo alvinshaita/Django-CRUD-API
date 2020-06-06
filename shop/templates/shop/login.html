@@ -1,0 +1,39 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html style="
+	background-color: ghostwhite;">
+	<head>
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+	    <div class="container enter login">
+	    	<div class="section-login">
+
+				<script>
+					
+
+					 $(document).ready(function() {
+					   $('select').attr("class", "browser-default")
+					});
+
+				</script>
+				<h2 class="login-title">Login</h2>
+				<form method="post">
+					{% csrf_token %}
+					{{form|crispy}}
+					<p><button class="btn btn-primary login" type="submit">Submit</button><p>
+				</form>
+				<div class="login-create">
+					<a >Create an account? <a class="" href="/accounts/signup/">signup</a> </a>
+				</div>
+	    	</div>
+    	</div>
+	</body>
+	<script type="text/javascript">
+		var username = document.getElementById("id_username");
+		var password = document.getElementById("id_password");
+		username.setAttribute("value", "admin");
+		password.setAttribute("value", "admin");
+	</script>
+</html>
