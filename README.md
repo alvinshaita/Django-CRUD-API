@@ -1,6 +1,6 @@
 # Django CRUD
 ## Django-CRUD-API
-This is a simple django API implementing the four basic functions of persistent storage, Create, Read, Update and Delete (CRUD).
+A Django API implementation of the four basic functions of persistent storage, Create, Read, Update and Delete (CRUD).
 
 Product model:
 * name
